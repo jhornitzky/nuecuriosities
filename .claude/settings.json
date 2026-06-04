@@ -1,0 +1,23 @@
+{
+  "allowedTools": [
+    "Bash(npm run *)",
+    "Bash(npm install *)",
+    "Bash(npm create *)",
+    "Bash(git status)",
+    "Bash(git add *)",
+    "Bash(git commit *)",
+    "Bash(git diff *)",
+    "Bash(ls *)",
+    "Bash(mkdir *)",
+    "Bash(touch *)",
+    "Bash(cat src/*)"
+  ],
+  "deniedTools": [
+    "Bash(sudo *)",
+    "Bash(rm -rf *)",
+    "Bash(curl *)",
+    "Bash(wget *)",
+    "Bash(cat ~/.*)",
+    "Bash(cat /etc/*)"
+  ]
+}
