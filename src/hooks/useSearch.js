@@ -1,8 +1,6 @@
 import { useState, useCallback } from 'react'
 import { interpretSearch } from '../api/anthropic'
-import { searchEtsy } from '../api/etsy'
-import { searchEbay } from '../api/ebay'
-import { mergeResults } from '../utils/mergeResults'
+import { searchProducts } from '../api/search'
 
 export function useSearch() {
   const [results, setResults] = useState([])
@@ -21,15 +19,8 @@ export function useSearch() {
       setInterpretation(interp)
 
       const keywords = interp.keywords?.join(' ') || query
-      const [etsyItems, ebayItems] = await Promise.allSettled([
-        searchEtsy(keywords, interp.category),
-        searchEbay(keywords, interp.category),
-      ])
-
-      const etsy = etsyItems.status === 'fulfilled' ? etsyItems.value : []
-      const ebay = ebayItems.status === 'fulfilled' ? ebayItems.value : []
-
-      setResults(mergeResults(etsy, ebay))
+      const items = await searchProducts(keywords, interp.category)
+      setResults(items)
     } catch (err) {
       setError(err.message || 'Something went wrong')
     } finally {

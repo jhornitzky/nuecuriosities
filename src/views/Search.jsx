@@ -2,10 +2,9 @@ import { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useSearch } from '../hooks/useSearch'
 import ItemCard from '../components/ItemCard'
-import SearchBar from '../components/SearchBar'
 
 export default function Search({ toggleSave, isSaved }) {
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
   const query = searchParams.get('q') || ''
   const { results, interpretation, loading, error, search } = useSearch()
 
@@ -14,16 +13,8 @@ export default function Search({ toggleSave, isSaved }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query])
 
-  function handleSearch(newQuery) {
-    setSearchParams({ q: newQuery })
-  }
-
   return (
     <div className="max-w-5xl mx-auto">
-      <div className="mb-6">
-        <SearchBar onSearch={handleSearch} initialValue={query} />
-      </div>
-
       {interpretation && (
         <div className="mb-6 p-4 bg-accent-dim rounded-xl">
           <p className="text-sm text-stone-600 mb-2">{interpretation.description}</p>

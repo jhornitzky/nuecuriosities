@@ -1,4 +1,4 @@
-# Curiosity Shop
+# Nue Curiousities
 
 A personal discovery app for finding unusual, hard-to-find objects — taxidermied butterflies, hyper-real food candles, hand-painted wallpaper, and the like. Built for one person. Not a marketplace — pure discovery and wishlist.
 

@@ -1,4 +1,4 @@
-# Curiosity Shop — Project Brief
+# Nue Curiosities — Project Brief
 
 ## What this is
 
